@@ -52,10 +52,10 @@ Finally, the prepared data is wrapped into `DataLoader` objects for efficient ba
 
 ### General Attention
 This is the simplest attention mechanism where the attention score is computed as the dot product of the decoder and encoder hidden states.
-    Equation:      e_i=\mathbf{s}_\mathbf{t}^\mathbf{T}\mathbf{h}_\mathbf{i}
-                  Code:
-                    General Attention (dot product)
-                    energy = torch.matmul(Q, K.permute(0, 1, 3, 2)) / self.scale
+    Code:
+            General Attention (dot product)
+            energy = torch.matmul(Q, K.permute(0, 1, 3, 2)) / self.scale
+
 
 
 ### Multiplicative Attention
