@@ -55,31 +55,31 @@ This is the simplest attention mechanism where the attention score is computed a
 
 $$e_i = \mathbf{s}_t^\mathbf{T} \mathbf{h}_i$$
 
-'''# General Attention (dot product)
+```# General Attention (dot product)
 energy = torch.matmul(Q, K.permute(0, 1, 3, 2)) / self.scale
-'''
+```
 
 ### Multiplicative Attention
 In this variation, the query (decoder hidden state) is transformed by a learnable weight matrix W before computing the attention score with the encoder hidden state.
 
 $$e_i = \mathbf{s}_t^\mathbf{T} (W \mathbf{h}_i)$$
 
-'''# Multiplicative Attention (using W)
+```# Multiplicative Attention (using W)
 q_w = self.W(Q)  # Apply transformation W to the query Q
 energy = torch.matmul(q_w, K.permute(0, 1, 3, 2)) / self.scale
-'''
+```
 
 ### Additive Attention
 In additive attention, the query and key are both transformed by learnable weight matrices, and their results are combined using the tanh activation function. The final attention score is produced by applying a weight vector v.
 
 $$e_i = \mathbf{v}^\mathbf{T} \tanh(W_1 \mathbf{h}_i + W_2 \mathbf{s}_t)$$
 
-'''# Additive Attention (using W1, W2, and v)
+```# Additive Attention (using W1, W2, and v)
 q_w = self.W1(Q)  # Transform the query using W1
 k_u = self.W2(K)  # Transform the key using W2
 energy = torch.tanh(q_w + k_u)  # Apply tanh to the sum of transformed query and key
 attention_scores = self.v(energy).squeeze(-1)  # Apply v to get final attention scores
-'''
+```
 
 ---
 
