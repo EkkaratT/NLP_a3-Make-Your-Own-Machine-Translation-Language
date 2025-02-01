@@ -141,14 +141,14 @@ Attention maps are crucial for understanding how a model focuses on different pa
   ![image](https://github.com/user-attachments/assets/7a05f007-2324-4ec0-a8a5-04b8e291b7c5)
 
 #### Visual Representation:
-	The attention map is visualized as a heatmap, where each cell corresponds to the attention score between an input token (in the source sequence) and an output token (in the target sequence).
-	The attention scores are represented by color intensity: lower values appear darker (black), while higher values appear lighter (ranging from grey to white).
+-	The attention map is visualized as a heatmap, where each cell corresponds to the attention score between an input token (in the source sequence) and an output token (in the target sequence).
+-	The attention scores are represented by color intensity: lower values appear darker (black), while higher values appear lighter (ranging from grey to white).
 
 ###	Effectiveness of Attention Mechanisms
 The effectiveness of attention mechanisms in translating between languages English and Thai, can be evaluated based on translation accuracy, computational efficiency, and attention map interpretability.
-	**General Attention** provides the best balance between translation accuracy and computational efficiency. It effectively captures complex dependencies in source and target languages, producing high-quality translations. The attention maps also show varied focus across the input sequence, aligning well with semantic relationships in the translation.
-	**Multiplicative Attention** offers strong translation quality by capturing subtle token relationships but is more computationally expensive. This mechanism is ideal for generating accurate translations when resources are not a limiting factor, but it may not be as efficient for large-scale tasks.
-	**Additive Attention** is the most computationally efficient, requiring less training time per epoch. However, it sometimes sacrifices translation quality, particularly for complex sentences. It is better suited for simpler tasks or situations where training time is crucial.
+-	**General Attention** provides the best balance between translation accuracy and computational efficiency. It effectively captures complex dependencies in source and target languages, producing high-quality translations. The attention maps also show varied focus across the input sequence, aligning well with semantic relationships in the translation.
+-	**Multiplicative Attention** offers strong translation quality by capturing subtle token relationships but is more computationally expensive. This mechanism is ideal for generating accurate translations when resources are not a limiting factor, but it may not be as efficient for large-scale tasks.
+-	**Additive Attention** is the most computationally efficient, requiring less training time per epoch. However, it sometimes sacrifices translation quality, particularly for complex sentences. It is better suited for simpler tasks or situations where training time is crucial.
 
 **General Attention** is the most effective overall, striking a good balance between accuracy and efficiency, making it the optimal choice for translating between languages with different syntactic structures.
 
