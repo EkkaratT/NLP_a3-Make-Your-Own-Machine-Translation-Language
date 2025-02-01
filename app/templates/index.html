@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Translation</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6e7a7f, #3b4c57);
+            margin: 0;
+            padding: 0;
+            color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        
+        /* Heading */
+        h1 {
+            text-align: center;
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* How To Use Section */
+        .how-to-use {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .how-to-use h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+        .how-to-use ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .how-to-use li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Input Section */
+        .translation-form {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%; /* Ensure the input takes full width of the container */
+            max-width: 1200px; /* Increase the max-width to make it larger */
+            padding: 20px; /* Increase padding for better spacing inside the input box */
+            margin: 15px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 24px; /* Increase font size to make text more readable */
+            background-color: #f9f9f9;
+            color: #333;
+            transition: border-color 0.3s ease-in-out;
+        }
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 22px;
+            width: 100%; /* Ensure button takes full width of the container */
+            max-width: 500px; /* Limit button size */
+            margin-top: 15px auto; /* Adds spacing between input and button */
+            transition: background-color 0.3s ease;
+            display: block; /* Make the button block-level for centering */
+            width: auto; /* Make the width auto so it's only as wide as the button's content */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+        /* Translation Results Section */
+        .result {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .result h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .result p {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Machine Translation (English to Thai)</h1>
+
+        <!-- How to Use Section -->
+        <div class="how-to-use">
+            <h2>How to Use:</h2>
+            <ul>
+                <li>Type or paste the text you want to translate.</li>
+                <li>Click on the "Translate" button to get the translation.</li>
+                <li>You can enter both words and full sentences for translation.</li>
+            </ul>
+        </div>
+
+        <!-- Translation Form -->
+        <form action="/translate" method="POST" class="translation-form">
+            <label for="input_text">Enter text to translate (English):</label>
+            <input type="text" id="input_text" name="input_text" required>
+            <button type="submit">Translate</button>
+        </form>
+
+        <!-- Displaying Original Text and Translated Text -->
+        {% if original_text %}
+        <div class="result">
+            <h3>Original Text:</h3>
+            <p>{{ original_text }}</p>
+            <h3>Translated Text:</h3>
+            <p>{{ translated_text }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+</body>
+</html>
