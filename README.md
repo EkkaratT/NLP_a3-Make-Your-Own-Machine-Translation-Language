@@ -53,19 +53,19 @@ Finally, the prepared data is wrapped into `DataLoader` objects for efficient ba
 ### General Attention
 This is the simplest attention mechanism where the attention score is computed as the dot product of the decoder and encoder hidden states.
 
-e_i = \mathbf{s}_t^\mathbf{T} \mathbf{h}_i
+$$e_i = \mathbf{s}_t^\mathbf{T} \mathbf{h}_i$$
 
 
 ### Multiplicative Attention
 In this variation, the query (decoder hidden state) is transformed by a learnable weight matrix W before computing the attention score with the encoder hidden state.
 
-e_i = \mathbf{s}_t^\mathbf{T} (W \mathbf{h}_i)
+$$e_i = \mathbf{s}_t^\mathbf{T} (W \mathbf{h}_i)$$
 
 
 ### Additive Attention
 In additive attention, the query and key are both transformed by learnable weight matrices, and their results are combined using the tanh activation function. The final attention score is produced by applying a weight vector v.
 
-e_i = \mathbf{v}^\mathbf{T} \tanh(W_1 \mathbf{h}_i + W_2 \mathbf{s}_t)
+$$e_i = \mathbf{v}^\mathbf{T} \tanh(W_1 \mathbf{h}_i + W_2 \mathbf{s}_t)$$
 
 
 ---
